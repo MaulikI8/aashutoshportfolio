@@ -82,7 +82,7 @@ function Reveal({ children, className = '', delay = 0 }: { children: string; cla
   return (
     <span ref={ref} className={`inline-flex flex-wrap gap-x-[0.28em] ${className}`}>
       {children.split(' ').map((w, i) => (
-        <span key={i} style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'top' }}>
+        <span key={i} className="pb-2 -mb-2" style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'top' }}>
           <motion.span style={{ display: 'inline-block' }}
             initial={{ y: '105%', opacity: 0 }}
             animate={inView ? { y: 0, opacity: 1 } : {}}
@@ -150,13 +150,13 @@ const SKILLS = [
 
 const SERVICES = [
   { title: 'Web Development', desc: 'Modern, fast, responsive websites built for real users and real performance.', icon: Globe, points: ['Responsive Design', 'Performance Optimized', 'SEO Ready', 'Accessible'] },
-  { title: 'Content Creation', desc: 'Independent video journalism, social media content, and digital storytelling that reaches people.', icon: Monitor, points: ['Video Production', 'Social Media Strategy', 'Digital Storytelling', 'Audience Growth'] },
-  { title: 'Digital Products', desc: 'End to end product development, from first concept to live production.', icon: Layers, points: ['MVP Development', 'Cloud Deployment', 'Scalable Architecture', 'Ongoing Support'] },
+  { title: 'Content Creation', desc: 'Engaging video content, creative social media strategies, and digital storytelling that connects with people.', icon: Monitor, points: ['Video Production', 'Social Media Strategy', 'Digital Storytelling', 'Audience Growth'] },
+  { title: 'Digital Products', desc: 'End to end product development, from first concept to live production.', icon: Layers, points: ['MVP Development', 'Cloud Deployment', 'Custom Integrations', 'Ongoing Support'] },
 ]
 
 const PROJECTS = [
   { id: '01', title: 'Imperial Watch Store', short: 'Luxury ecommerce with a full shopping cart.', long: 'A premium ecommerce experience for luxury timepieces. Custom cart engine, real time inventory simulation, and a visual design that sells.', tech: ['JavaScript', 'CSS3', 'HTML5', 'LocalStorage'], github: 'https://github.com/aashutoshbasnetdotcom/', live: 'https://github.com/aashutoshbasnetdotcom/', done: true },
-  { id: '02', title: 'CV Craft Pro', short: 'AI powered resume builder for professionals.', long: 'Helps job seekers create ATS friendly resumes. AI suggestions, formatting adjustments, and clean PDF export — all in one app.', tech: ['React', 'Django', 'PostgreSQL', 'OpenAI'], github: 'https://github.com/aashutoshbasnetdotcom/', live: 'https://cvcraftproapp.vercel.app', done: true },
+  { id: '02', title: 'CV Craft Pro', short: 'AI powered resume builder for professionals.', long: 'Helps job seekers create ATS friendly resumes. AI suggestions, formatting adjustments, and clean PDF export, all in one app.', tech: ['React', 'Django', 'PostgreSQL', 'OpenAI'], github: 'https://github.com/aashutoshbasnetdotcom/', live: 'https://cvcraftproapp.vercel.app', done: true },
   { id: '03', title: 'TaskFlow Manager', short: 'Real time collaborative task management.', long: 'Productivity tool for distributed teams. Real time updates via WebSockets, kanban style boards, and team permissions with optimistic UI.', tech: ['Next.js', 'Prisma', 'TypeScript', 'WebSockets'], github: 'https://github.com/aashutoshbasnetdotcom/', live: '#', done: false },
   { id: '04', title: 'Community Platform', short: 'Connecting young people and local communities.', long: 'A platform for organizing events, sharing resources, and enabling secure group communication. Designed for communities that need real tools, not just social feeds.', tech: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind'], github: 'https://github.com/aashutoshbasnetdotcom/', live: '#', done: false },
 ]
@@ -266,7 +266,7 @@ function Hero() {
             </div>
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.48 }}
               className="text-[#5a6b5e] text-lg leading-relaxed mb-10 max-w-md">
-              Web developer and content creator. I build things and tell stories that matter.
+              Web developer, content creator, and artist. I build things and tell stories that matter.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.58 }} className="flex flex-wrap gap-4">
               <Mag href="#projects" className="px-7 py-3.5 bg-[#1a2e2a] text-[#f5f0e8] font-medium rounded-full hover:bg-[#243d38] transition-colors flex items-center gap-2 group shadow-lg shadow-[#1a2e2a]/20">
@@ -324,9 +324,10 @@ function Hero() {
 // ─── IDENTITY / WHO I AM ──────────────────────────────────────────────────────
 function Identity() {
   const stories = [
-    { label: 'The Person', text: "I am Aashutosh Basnet from Nepal. I build websites, create content, and got involved in something much bigger than myself when my generation decided enough was enough." },
+    { label: 'The Person', text: "I am Aashutosh Basnet from Nepal. I build websites, create content, and enjoy figuring out how things work. Whether it's crafting a sleek UI or exploring new ideas, I love the process of bringing concepts to life." },
     { label: 'The Developer', text: "I like building things that look good and work well. I care about fast load times, clean code, and not cutting corners. When I take on a project, I treat it like my own product, not just a checklist." },
     { label: 'The Creator', text: "I’m a creator who enjoys making content that resonates with me, from learning based ideas to brainrot and internet culture. I like exploring both because that is where real connection happens, while constantly experimenting and evolving my voice. A small incident during the September 2025 Gen Z movement in Nepal brought me a bit of unexpected attention and somehow even AI seems to know who I am now, which is still kind of funny to me." },
+    { label: 'The Artist', text: "For me, the internet is a canvas. I don't just write code or make videos, I design experiences. From the colors and typography of a web application to the pacing of a narrative, aesthetics and emotion drive everything I create." },
     { label: 'The Learner', text: "Currently studying BSc (Hons) Computing at Islington College. I believe the best way to learn is by building real things and putting them out into the world." },
   ]
   return (
@@ -337,7 +338,7 @@ function Identity() {
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
               className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-6">Who I Am</motion.p>
             <h2 className="text-4xl md:text-5xl font-bold text-[#1a2e2a] leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-              <Reveal>Developer. Creator. Someone who shows up when it matters.</Reveal>
+              <Reveal>Developer. Creator. Artist.</Reveal>
             </h2>
           </div>
           <div className="space-y-10">
@@ -385,9 +386,13 @@ function SocialsBand() {
 
 // ─── MISSION / WHAT I STAND FOR ───────────────────────────────────────────────
 function Mission() {
-  const lines = ['I write code that works.', 'I create content that reaches people.', 'I show up when it matters.']
+  const lines = [
+    'I build digital products that solve real problems.',
+    'I create content that connects with people.',
+    'I use technology to support meaningful change.'
+  ]
   const values = [
-    { n: '01', title: 'Authenticity', desc: "I documented the Gen Z protests in Nepal with a camera while others looked away. I got shot doing it. That is not a brand statement, it is just what happened. I carry that same honesty into my work." },
+    { n: '01', title: 'Authenticity', desc: "I believe in being genuine online and offline. I don't hide behind corporate jargon or pretend to be something I am not. I carry that same unfiltered transparency into every product I build and every piece of content I create." },
     { n: '02', title: 'Access', desc: "The best technology removes barriers. I build products and content that serve real people, not just those who can afford premium tools." },
     { n: '03', title: 'Impact', desc: "Every project is a choice. I choose to build things that matter, whether it is a website for a local business or a platform that connects communities." },
   ]
@@ -396,8 +401,8 @@ function Mission() {
       <div className="max-w-5xl mx-auto">
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-6">What I Stand For</motion.p>
-        <h2 className="text-2xl md:text-4xl font-bold text-[#f5f0e8] mb-14 max-w-2xl leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-          <Reveal>Technology should serve people, not just profit.</Reveal>
+        <h2 className="text-2xl md:text-4xl font-bold text-[#f5f0e8] mb-14 max-w-3xl leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <Reveal>Building technology and content that help ideas reach people and create real impact.</Reveal>
         </h2>
 
         {/* Manifesto lines */}
@@ -641,7 +646,7 @@ function Contact() {
           className="h-1 w-16 bg-[#d4a855] rounded-full mb-8 mx-auto" />
         <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.35 }}
           className="text-[#5a6b5e] text-lg mb-12 leading-relaxed">
-          Whether you have a project in mind, want to collaborate, or just want to say hi — my inbox is always open.
+          Whether you have a project or video in mind, want to collaborate, or just want to say hi, my inbox is always open.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.45 }}>
           <Mag href="mailto:aashutoshbasnet2063@gmail.com" className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a2e2a] text-[#f5f0e8] font-medium rounded-full hover:bg-[#243d38] transition-all shadow-lg shadow-[#1a2e2a]/20 group">
@@ -744,18 +749,18 @@ function Experience() {
       tags: ['Next.js', 'React', 'Node.js', 'PostgreSQL', 'Tailwind'],
     },
     {
-      role: 'Content Creator and Independent Journalist',
+      role: 'Content Creator',
       org: 'Self Published',
-      period: 'September 2025 to Present',
-      desc: 'During the Gen Z protests in Nepal, I was on the ground with a camera when the government banned social media and tried to silence an entire generation. I documented events in real time through video and social media, building an audience of over 160K followers across TikTok and Instagram. Got shot in the process. Kept going.',
-      tags: ['Video Production', 'Social Media', 'Storytelling', 'Journalism'],
+      period: '2023 to Present',
+      desc: 'Creating content with a community of over 160K followers across TikTok and Instagram. From exploring learning-based ideas to internet culture and brainrot, I constantly experiment with formats and storytelling to see what connects with people.',
+      tags: ['Video Production', 'Social Media', 'Storytelling', 'Community Building'],
     },
     {
       role: 'Tech Community Volunteer',
       org: 'Local Dev Communities, Kathmandu',
       period: '2024 to Present',
-      desc: 'Helping organize meetups, workshops, and hackathons for young developers in Nepal. Mentoring beginners and contributing to a growing local tech scene.',
-      tags: ['Mentorship', 'Event Organization', 'Public Speaking', 'Community'],
+      desc: 'Helping organize meetups, workshops, and hackathons for young developers in Nepal. Contributing to a growing local tech scene.',
+      tags: ['Event Organization', 'Public Speaking', 'Community'],
     },
     {
       role: 'Open Source Contributor',
@@ -819,6 +824,98 @@ function Experience() {
   )
 }
 
+// ─── BUCKET LIST ──────────────────────────────────────────────────────────────
+function BucketList() {
+  const [open, setOpen] = useState(false)
+  const [checked, setChecked] = useState<Record<string, boolean>>({})
+
+  const toggle = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    setChecked(prev => ({ ...prev, [id]: !prev[id] }))
+  }
+
+  const leftItems = [
+    "Horse riding",
+    "1600 ELO",
+    "Learn to draw",
+    "Learn Newari",
+    "Learn Skateboard and 5 tricks",
+    "Sky Diving",
+    "Plasma Cannon",
+    "Start a tech company and get into 30% tax bracket and one exatra companu for fun, just for fun",
+    "Upload atleast 4 music videos",
+    "Make a discord group with growth minded people with atleast 30K members"
+  ]
+  const rightItems = [
+    "River rafting",
+    "Dive in the middle of phewa lake",
+    "3 foreign country",
+    "50K Youtube Subscriber combined",
+    "67 K Facebook followers",
+    "67K Instagram followers",
+    "250K Tiktok followers on main account and 60K on new account",
+    "3 treks",
+    "1 research paper",
+    "Start Aashutosh Basnet Online School yt channel upload atleast 5 different helpful course for free",
+    "Do everything with own earned money"
+  ]
+
+  const Item = ({ text, id }: { text: string; id: string }) => {
+    const isChecked = !!checked[id]
+    return (
+      <label className="flex items-start gap-4 mb-5 cursor-pointer group select-none" onClick={(e) => e.stopPropagation()}>
+        <div className="relative mt-0.5" onClick={(e) => toggle(id, e)}>
+          <input type="checkbox" className="peer sr-only" readOnly checked={isChecked} />
+          <div className="w-4 h-4 rounded border border-[#475569] bg-[#1e293b] peer-checked:bg-[#22c55e] peer-checked:border-[#22c55e] flex items-center justify-center transition-colors">
+            {isChecked && (
+              <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            )}
+          </div>
+        </div>
+        <span className={`text-sm leading-snug flex-1 transition-all duration-300 ${isChecked ? 'line-through text-[#64748b] opacity-60' : 'text-[#e2e8f0] group-hover:text-white'}`} onClick={(e) => toggle(id, e)}>
+          {text}
+        </span>
+      </label>
+    )
+  }
+
+  return (
+    <section className="py-24 px-6 bg-[#0f172a]" data-dark>
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-[#1e293b] rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+          <div onClick={() => setOpen(!open)} className="px-6 py-5 md:px-8 md:py-6 flex justify-between items-center bg-[#111827] cursor-pointer hover:bg-[#151c2c] transition-colors">
+            <h2 className="text-lg md:text-xl font-bold text-white tracking-wide">
+              Bucket List for 2083 <span className="block md:inline mt-1 md:mt-0 text-[#94a3b8] font-normal text-sm md:text-base opacity-80">( April, 2026 to April, 2027 )</span>
+            </h2>
+            <div className={`text-[#94a3b8] text-3xl font-light transform transition-transform duration-300 ${open ? 'rotate-45' : ''}`}>
+              +
+            </div>
+          </div>
+          
+          <AnimatePresence>
+            {open && (
+              <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                <div className="p-6 md:p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+                    <div>
+                      {leftItems.map((item, i) => <Item key={`l-${i}`} id={`l-${i}`} text={item} />)}
+                    </div>
+                    <div className="mt-2 md:mt-0">
+                      {rightItems.map((item, i) => <Item key={`r-${i}`} id={`r-${i}`} text={item} />)}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── ROOT ─────────────────────────────────────────────────────────────────────
 export default function Portfolio() {
   useLenis()
@@ -834,6 +931,7 @@ export default function Portfolio() {
       <Experience />
       <Education />
       <Projects />
+      <BucketList />
       <Contact />
       <Footer />
     </main>
