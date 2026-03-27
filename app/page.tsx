@@ -143,15 +143,15 @@ const SKILLS = [
 
 const SERVICES = [
   { title: 'Web Development', desc: 'Modern, fast, responsive websites built for real users and real performance.', icon: Globe, points: ['Responsive Design', 'Performance Optimized', 'SEO Ready', 'Accessible'] },
-  { title: 'Web Applications', desc: 'Full stack apps with clean architecture, solid backends, and polished frontends.', icon: Layers, points: ['React / Next.js', 'REST APIs', 'Database Design', 'Auth Systems'] },
-  { title: 'Digital Products', desc: 'End to end product development — from first concept to live production.', icon: Monitor, points: ['MVP Development', 'Cloud Deployment', 'Scalable Architecture', 'Ongoing Support'] },
+  { title: 'Content Creation', desc: 'Independent video journalism, social media content, and digital storytelling that reaches people.', icon: Monitor, points: ['Video Production', 'Social Media Strategy', 'Digital Storytelling', 'Audience Growth'] },
+  { title: 'Digital Products', desc: 'End to end product development, from first concept to live production.', icon: Layers, points: ['MVP Development', 'Cloud Deployment', 'Scalable Architecture', 'Ongoing Support'] },
 ]
 
 const PROJECTS = [
   { id: '01', title: 'Imperial Watch Store', short: 'Luxury ecommerce with a full shopping cart.', long: 'A premium ecommerce experience for luxury timepieces. Custom cart engine, real time inventory simulation, and a visual design that sells.', tech: ['JavaScript', 'CSS3', 'HTML5', 'LocalStorage'], github: 'https://github.com/', live: 'https://github.com/', done: true },
   { id: '02', title: 'CV Craft Pro', short: 'AI powered resume builder for professionals.', long: 'Helps job seekers create ATS friendly resumes. AI suggestions, formatting adjustments, and clean PDF export — all in one app.', tech: ['React', 'Django', 'PostgreSQL', 'OpenAI'], github: 'https://github.com/', live: 'https://cvcraftproapp.vercel.app', done: true },
   { id: '03', title: 'TaskFlow Manager', short: 'Real time collaborative task management.', long: 'Productivity tool for distributed teams. Real time updates via WebSockets, kanban style boards, and team permissions with optimistic UI.', tech: ['Next.js', 'Prisma', 'TypeScript', 'WebSockets'], github: 'https://github.com/', live: '#', done: false },
-  { id: '04', title: 'Community Platform', short: 'Connecting activists and youth organizers.', long: 'Built for civic engagement — event tools, petitions, resource sharing, and secure messaging for community groups pushing for change.', tech: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind'], github: 'https://github.com/', live: '#', done: false },
+  { id: '04', title: 'Community Platform', short: 'Connecting young people and local communities.', long: 'A platform for organizing events, sharing resources, and enabling secure group communication. Designed for communities that need real tools, not just social feeds.', tech: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind'], github: 'https://github.com/', live: '#', done: false },
 ]
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
@@ -243,7 +243,7 @@ function Hero() {
             </div>
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.48 }}
               className="text-[#5a6b5e] text-lg leading-relaxed mb-10 max-w-md">
-              Web developer. Civic tech advocate. Building tools that make a difference.
+              Web developer and content creator. I build things and tell stories that matter.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.58 }} className="flex flex-wrap gap-4">
               <Mag href="#projects" className="px-7 py-3.5 bg-[#1a2e2a] text-[#f5f0e8] font-medium rounded-full hover:bg-[#243d38] transition-colors flex items-center gap-2 group shadow-lg shadow-[#1a2e2a]/20">
@@ -254,7 +254,7 @@ function Hero() {
               </Mag>
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="flex items-center gap-5 mt-10">
-              {[{ href: 'https://github.com/', Icon: Github }, { href: 'https://linkedin.com', Icon: Linkedin }, { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }].map(({ href, Icon }) => (
+              {[{ href: 'https://github.com/aashutoshbasnetdotcom/', Icon: Github }, { href: 'https://www.linkedin.com/in/aashutoshbasnet/', Icon: Linkedin }, { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }].map(({ href, Icon }) => (
                 <a key={href} href={href} target={href.startsWith('http') ? '_blank' : undefined} className="text-[#9aaa9e] hover:text-[#1a2e2a] transition-colors"><Icon className="w-5 h-5" /></a>
               ))}
             </motion.div>
@@ -277,8 +277,8 @@ function Hero() {
               </motion.div>
               <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 className="absolute -bottom-5 -left-10 bg-[#1a2e2a] rounded-2xl p-4 shadow-md">
-                <div className="text-2xl font-bold text-[#d4a855]" style={{ fontFamily: 'var(--font-playfair)' }}>20+</div>
-                <div className="text-xs text-[#a8c0b0]">Projects Done</div>
+                <div className="text-2xl font-bold text-[#d4a855]" style={{ fontFamily: 'var(--font-playfair)' }}>160K+</div>
+                <div className="text-xs text-[#a8c0b0]">Followers</div>
               </motion.div>
             </div>
           </motion.div>
@@ -297,9 +297,10 @@ function Hero() {
 // ─── IDENTITY / WHO I AM ──────────────────────────────────────────────────────
 function Identity() {
   const stories = [
-    { label: 'The Person', text: "I am Aashutosh Basnet, a web developer based in Nepal. I build things that work for real people and leave something worthwhile behind." },
+    { label: 'The Person', text: "I am Aashutosh Basnet from Nepal. I build websites, create content, and got involved in something much bigger than myself when my generation decided enough was enough." },
     { label: 'The Developer', text: "I like building things that look good and work well. I care about fast load times, clean code, and not cutting corners. When I take on a project, I treat it like my own product, not just a checklist." },
-    { label: 'The Learner', text: "Currently a BSc (Hons) Computing student, I am constantly expanding my knowledge in software engineering, system design, and modern development practices. I believe in learning by building." },
+    { label: 'The Creator', text: "I’m a creator who enjoys making content that resonates with me, from learning based ideas to brainrot and internet culture. I like exploring both because that is where real connection happens, while constantly experimenting and evolving my voice. A small incident during the September 2025 Gen Z movement in Nepal brought me a bit of unexpected attention and somehow even AI seems to know who I am now, which is still kind of funny to me." },
+    { label: 'The Learner', text: "Currently studying BSc (Hons) Computing at Islington College. I believe the best way to learn is by building real things and putting them out into the world." },
   ]
   return (
     <section id="about" className="py-28 px-6">
@@ -309,7 +310,7 @@ function Identity() {
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
               className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-6">Who I Am</motion.p>
             <h2 className="text-4xl md:text-5xl font-bold text-[#1a2e2a] leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-              <Reveal>Developer. Learner. Builder of things that matter.</Reveal>
+              <Reveal>Developer. Creator. Someone who shows up when it matters.</Reveal>
             </h2>
           </div>
           <div className="space-y-10">
@@ -333,11 +334,11 @@ function Identity() {
 
 // ─── MISSION / WHAT I STAND FOR ───────────────────────────────────────────────
 function Mission() {
-  const lines = ['I write code that works.', 'I design experiences that feel right.', 'I build for those who need it most.']
+  const lines = ['I write code that works.', 'I create content that reaches people.', 'I show up when it matters.']
   const values = [
-    { n: '01', title: 'Quality', desc: "Every project deserves thoughtful architecture. I write clean, maintainable, and well tested code because shortcuts today become problems tomorrow." },
-    { n: '02', title: 'Access', desc: "The best technology removes barriers. I build products that serve real people — especially those left out of the digital revolution." },
-    { n: '03', title: 'Impact', desc: "Every line of code is a choice. I choose to build things that matter, products that solve real problems and are built to last." },
+    { n: '01', title: 'Authenticity', desc: "I documented the Gen Z protests in Nepal with a camera while others looked away. I got shot doing it. That is not a brand statement, it is just what happened. I carry that same honesty into my work." },
+    { n: '02', title: 'Access', desc: "The best technology removes barriers. I build products and content that serve real people, not just those who can afford premium tools." },
+    { n: '03', title: 'Impact', desc: "Every project is a choice. I choose to build things that matter, whether it is a website for a local business or a platform that connects communities." },
   ]
   return (
     <section id="mission" className="py-28 px-6 bg-[#1a2e2a]" data-dark>
@@ -671,6 +672,92 @@ function Footer() {
   )
 }
 
+// ─── EXPERIENCE ───────────────────────────────────────────────────────────────
+function Experience() {
+  const experiences = [
+    {
+      role: 'Freelance Web Developer',
+      org: 'Independent',
+      period: '2024 to Present',
+      desc: 'Building custom websites and web apps for clients across Nepal and beyond. Everything from business landing pages to full stack applications with payment integration and dashboards.',
+      tags: ['Next.js', 'React', 'Node.js', 'PostgreSQL', 'Tailwind'],
+    },
+    {
+      role: 'Content Creator and Independent Journalist',
+      org: 'Self Published',
+      period: 'September 2025 to Present',
+      desc: 'During the Gen Z protests in Nepal, I was on the ground with a camera when the government banned social media and tried to silence an entire generation. I documented events in real time through video and social media, building an audience of over 160K followers across TikTok and Instagram. Got shot in the process. Kept going.',
+      tags: ['Video Production', 'Social Media', 'Storytelling', 'Journalism'],
+    },
+    {
+      role: 'Tech Community Volunteer',
+      org: 'Local Dev Communities, Kathmandu',
+      period: '2024 to Present',
+      desc: 'Helping organize meetups, workshops, and hackathons for young developers in Nepal. Mentoring beginners and contributing to a growing local tech scene.',
+      tags: ['Mentorship', 'Event Organization', 'Public Speaking', 'Community'],
+    },
+    {
+      role: 'Open Source Contributor',
+      org: 'GitHub',
+      period: '2023 to Present',
+      desc: 'Contributing to open source projects, building reusable components, and sharing code that other developers can learn from and use in their own work.',
+      tags: ['Open Source', 'React Components', 'Documentation', 'Code Review'],
+    },
+    {
+      role: 'Web Development Intern',
+      org: 'Local Tech Startup, Nepal',
+      period: '2023 to 2024',
+      desc: 'Built and maintained client facing features for a SaaS product. Worked in a small team shipping weekly updates, writing tests, and learning how production codebases actually work.',
+      tags: ['React', 'TypeScript', 'REST APIs', 'Agile', 'Git'],
+    },
+  ]
+  return (
+    <section className="py-28 px-6 bg-[#1a2e2a]" data-dark>
+      <div className="max-w-4xl mx-auto">
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+          className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-4">My Journey</motion.p>
+        <h2 className="text-3xl md:text-5xl font-bold text-[#f5f0e8] tracking-tight mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <Reveal>Experience</Reveal>
+        </h2>
+        <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.5 }}
+          className="h-1 w-16 bg-[#d4a855] rounded-full mb-14 origin-left" />
+
+        {/* Timeline */}
+        <div className="relative">
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-white/10" />
+
+          <div className="space-y-8">
+            {experiences.map((exp, i) => (
+              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.55, ease: [0.33, 1, 0.68, 1] }}
+                className="relative pl-12">
+
+                <div className="absolute left-[9px] top-[20px] w-3.5 h-3.5 rounded-full border-2 border-[#1a2e2a] bg-[#d4a855]" />
+
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#d4a855]/30 hover:bg-white/8 transition-all duration-300 group">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1">
+                    <h3 className="text-base font-bold text-[#f5f0e8] group-hover:text-[#d4a855] transition-colors duration-300">{exp.role}</h3>
+                    <span className="text-xs font-mono text-[#d4a855] bg-[#d4a855]/10 px-3 py-1 rounded-full border border-[#d4a855]/20 whitespace-nowrap">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <p className="text-[#7a9a84] text-xs font-medium mb-3">{exp.org}</p>
+                  <p className="text-[#a8c0b0] text-sm leading-relaxed mb-4">{exp.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tags.map(t => (
+                      <span key={t} className="text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#7a9a84] font-mono group-hover:border-white/20 transition-colors duration-300">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── ROOT ─────────────────────────────────────────────────────────────────────
 export default function Portfolio() {
   useLenis()
@@ -682,6 +769,7 @@ export default function Portfolio() {
       <Identity />
       <Mission />
       <WhatIBuild />
+      <Experience />
       <Education />
       <Projects />
       <Contact />
