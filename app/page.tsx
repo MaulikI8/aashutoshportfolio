@@ -9,7 +9,14 @@ import {
   Github, Linkedin, Mail, ExternalLink, Code2, Database, Layers, Globe,
   Terminal, Server, Layout, Menu, X, ArrowRight, GitBranch, Briefcase,
   Monitor, Cloud, MapPin, Heart, Box, Zap, GraduationCap, BookOpen,
+  Instagram, Facebook, Youtube, Music
 } from 'lucide-react'
+
+const TiktokIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 004 15.74a6.34 6.34 0 0010.86 4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+  </svg>
+)
 
 // ─── LENIS SMOOTH SCROLL ──────────────────────────────────────────────────────
 function useLenis() {
@@ -148,10 +155,10 @@ const SERVICES = [
 ]
 
 const PROJECTS = [
-  { id: '01', title: 'Imperial Watch Store', short: 'Luxury ecommerce with a full shopping cart.', long: 'A premium ecommerce experience for luxury timepieces. Custom cart engine, real time inventory simulation, and a visual design that sells.', tech: ['JavaScript', 'CSS3', 'HTML5', 'LocalStorage'], github: 'https://github.com/', live: 'https://github.com/', done: true },
-  { id: '02', title: 'CV Craft Pro', short: 'AI powered resume builder for professionals.', long: 'Helps job seekers create ATS friendly resumes. AI suggestions, formatting adjustments, and clean PDF export — all in one app.', tech: ['React', 'Django', 'PostgreSQL', 'OpenAI'], github: 'https://github.com/', live: 'https://cvcraftproapp.vercel.app', done: true },
-  { id: '03', title: 'TaskFlow Manager', short: 'Real time collaborative task management.', long: 'Productivity tool for distributed teams. Real time updates via WebSockets, kanban style boards, and team permissions with optimistic UI.', tech: ['Next.js', 'Prisma', 'TypeScript', 'WebSockets'], github: 'https://github.com/', live: '#', done: false },
-  { id: '04', title: 'Community Platform', short: 'Connecting young people and local communities.', long: 'A platform for organizing events, sharing resources, and enabling secure group communication. Designed for communities that need real tools, not just social feeds.', tech: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind'], github: 'https://github.com/', live: '#', done: false },
+  { id: '01', title: 'Imperial Watch Store', short: 'Luxury ecommerce with a full shopping cart.', long: 'A premium ecommerce experience for luxury timepieces. Custom cart engine, real time inventory simulation, and a visual design that sells.', tech: ['JavaScript', 'CSS3', 'HTML5', 'LocalStorage'], github: 'https://github.com/aashutoshbasnetdotcom/', live: 'https://github.com/aashutoshbasnetdotcom/', done: true },
+  { id: '02', title: 'CV Craft Pro', short: 'AI powered resume builder for professionals.', long: 'Helps job seekers create ATS friendly resumes. AI suggestions, formatting adjustments, and clean PDF export — all in one app.', tech: ['React', 'Django', 'PostgreSQL', 'OpenAI'], github: 'https://github.com/aashutoshbasnetdotcom/', live: 'https://cvcraftproapp.vercel.app', done: true },
+  { id: '03', title: 'TaskFlow Manager', short: 'Real time collaborative task management.', long: 'Productivity tool for distributed teams. Real time updates via WebSockets, kanban style boards, and team permissions with optimistic UI.', tech: ['Next.js', 'Prisma', 'TypeScript', 'WebSockets'], github: 'https://github.com/aashutoshbasnetdotcom/', live: '#', done: false },
+  { id: '04', title: 'Community Platform', short: 'Connecting young people and local communities.', long: 'A platform for organizing events, sharing resources, and enabling secure group communication. Designed for communities that need real tools, not just social feeds.', tech: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind'], github: 'https://github.com/aashutoshbasnetdotcom/', live: '#', done: false },
 ]
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
@@ -159,9 +166,19 @@ function Nav() {
   const [active, setActive] = useState('hero')
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [onDark, setOnDark] = useState(false)
+
   useEffect(() => {
     const fn = () => {
       setScrolled(window.scrollY > 40)
+      
+      let currentDark = false
+      document.querySelectorAll('[data-dark]').forEach(el => {
+        const rect = el.getBoundingClientRect()
+        if (rect.top <= 64 && rect.bottom >= 32) currentDark = true
+      })
+      setOnDark(currentDark)
+
       const ids = NAV.map(i => i.href.slice(1)).reverse()
       for (const id of ids) {
         const el = document.getElementById(id)
@@ -169,30 +186,36 @@ function Nav() {
       }
     }
     window.addEventListener('scroll', fn)
+    // Run once on mount to check initial position
+    fn()
     return () => window.removeEventListener('scroll', fn)
   }, [])
+
+  const tColor = onDark ? 'text-[#f5f0e8]' : 'text-[#1a2e2a]'
+  const tMuted = onDark ? 'text-[#a8c0b0]' : 'text-[#7a8a7e]'
+
   return (
     <>
       <motion.nav initial={{ y: -24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#f5f0e8]/92 backdrop-blur-md shadow-sm border-b border-[#e8e0d0]' : 'bg-transparent'}`}>
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-transparent backdrop-blur-md' : 'bg-transparent'}`}>
         <div className="max-w-5xl mx-auto px-6 flex items-center justify-between h-16">
-          <a href="#hero" className="font-bold text-xl text-[#1a2e2a] tracking-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-            AB<span className="text-[#d4a855]">.</span>
+          <a href="#hero" className={`font-bold text-xl tracking-tight transition-colors duration-300 ${tColor}`} style={{ fontFamily: 'var(--font-playfair)' }}>
+            aashutoshbasnet<span className="text-[#d4a855]">.com</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
             {NAV.map(item => {
               const isActive = active === item.href.slice(1)
               return (
                 <a key={item.label} href={item.href} onClick={() => setActive(item.href.slice(1))}
-                  className={`relative text-sm font-medium transition-colors duration-200 pb-0.5 ${isActive ? 'text-[#1a2e2a]' : 'text-[#7a8a7e] hover:text-[#1a2e2a]'}`}>
+                  className={`relative text-sm font-medium transition-colors duration-300 pb-0.5 ${isActive ? tColor : `${tMuted} hover:${tColor}`}`}>
                   {item.label}
                   {isActive && <motion.span layoutId="nav-line" className="absolute bottom-0 left-0 right-0 h-px bg-[#d4a855] rounded-full" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
                 </a>
               )
             })}
-            <Mag href="mailto:aashutoshbasnet2063@gmail.com" className="px-5 py-2 bg-[#1a2e2a] text-[#f5f0e8] text-sm font-medium rounded-full hover:bg-[#243d38] transition-colors">Hire Me</Mag>
+            <Mag href="mailto:aashutoshbasnet2063@gmail.com" className={`px-5 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${onDark ? 'bg-[#d4a855] text-[#1a2e2a] hover:bg-[#c8b99a]' : 'bg-[#1a2e2a] text-[#f5f0e8] hover:bg-[#243d38]'}`}>Hire Me</Mag>
           </div>
-          <button className="md:hidden text-[#1a2e2a]" onClick={() => setOpen(!open)}>
+          <button className={`md:hidden transition-colors duration-300 ${tColor}`} onClick={() => setOpen(!open)}>
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -200,7 +223,7 @@ function Nav() {
       <AnimatePresence>
         {open && (
           <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.2 }}
-            className="fixed top-16 inset-x-0 z-40 bg-[#f5f0e8]/98 backdrop-blur-md border-b border-[#e8e0d0] py-5 px-6 md:hidden">
+            className="fixed top-16 inset-x-0 z-40 bg-[#f5f0e8]/95 backdrop-blur-md border-b border-[#e8e0d0] py-5 px-6 md:hidden">
             {NAV.map(item => (
               <a key={item.label} href={item.href} onClick={() => setOpen(false)}
                 className="block text-[#1a2e2a] font-medium py-3 border-b border-[#e8e0d0] last:border-0 text-sm">{item.label}</a>
@@ -237,7 +260,7 @@ function Hero() {
                   <motion.span className="block" initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}>Aashutosh</motion.span>
                 </span>
                 <span className="block" style={{ overflow: 'hidden' }}>
-                  <motion.span className="block text-[#d4a855]" initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.7, delay: 0.32, ease: [0.33, 1, 0.68, 1] }}>Basnet.</motion.span>
+                  <motion.span className="block text-[#d4a855]" initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.7, delay: 0.32, ease: [0.33, 1, 0.68, 1] }}>Basnet</motion.span>
                 </span>
               </h1>
             </div>
@@ -254,8 +277,15 @@ function Hero() {
               </Mag>
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="flex items-center gap-5 mt-10">
-              {[{ href: 'https://github.com/aashutoshbasnetdotcom/', Icon: Github }, { href: 'https://www.linkedin.com/in/aashutoshbasnet/', Icon: Linkedin }, { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }].map(({ href, Icon }) => (
-                <a key={href} href={href} target={href.startsWith('http') ? '_blank' : undefined} className="text-[#9aaa9e] hover:text-[#1a2e2a] transition-colors"><Icon className="w-5 h-5" /></a>
+              {[
+                { href: 'https://github.com/aashutoshbasnetdotcom/', Icon: Github }, 
+                { href: 'https://www.linkedin.com/in/aashutoshbasnet/', Icon: Linkedin }, 
+                { href: '#', Icon: Instagram }, 
+                { href: '#', Icon: TiktokIcon }, 
+                { href: '#', Icon: Facebook }, 
+                { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }
+              ].map(({ href, Icon }, idx) => (
+                <a key={idx} href={href} target={href.startsWith('http') ? '_blank' : undefined} className="text-[#9aaa9e] hover:text-[#1a2e2a] transition-colors"><Icon className="w-5 h-5" /></a>
               ))}
             </motion.div>
           </div>
@@ -263,17 +293,14 @@ function Hero() {
           <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:flex flex-col items-center justify-center">
             <div className="relative">
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#d4a855]/20 to-[#1a2e2a]/10 flex items-center justify-center border border-[#d4a855]/20">
-                <div className="w-64 h-64 rounded-full bg-gradient-to-br from-[#f5f0e8] to-[#e8dfd0] flex items-center justify-center shadow-inner">
-                  <div className="text-center">
-                    <div className="text-6xl font-black text-[#1a2e2a] mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>AB</div>
-                    <div className="text-[#d4a855] text-sm font-medium tracking-wide">Web Developer</div>
-                  </div>
-                </div>
+                
+                  <img src="/profile.png" alt="Aashutosh Basnet" className="w-[82%] h-[82%] object-cover object-[center_10%] rounded-full" />
+                
               </div>
               <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
                 className="absolute -top-5 -right-10 bg-[#faf7f2] border border-[#e8e0d0] rounded-2xl p-4 shadow-md">
-                <div className="text-2xl font-bold text-[#1a2e2a]" style={{ fontFamily: 'var(--font-playfair)' }}>3+</div>
-                <div className="text-xs text-[#7a8a7e]">Years Building</div>
+                <div className="text-l font-bold text-[#1a2e2a]" style={{ fontFamily: 'var(--font-playfair)' }}>3+ Years Building</div>
+                <div className="text-xs text-[#7a8a7e]">20+ Projects</div>
               </motion.div>
               <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 className="absolute -bottom-5 -left-10 bg-[#1a2e2a] rounded-2xl p-4 shadow-md">
@@ -320,13 +347,37 @@ function Identity() {
                 <p className="text-[#3a5040] text-lg leading-relaxed">{s.text}</p>
               </motion.div>
             ))}
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="pt-4">
               <Mag href="mailto:aashutoshbasnet2063@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a2e2a] text-[#f5f0e8] font-medium rounded-full hover:bg-[#243d38] transition-colors">
                 <Mail className="w-4 h-4" /> Say Hello
               </Mag>
             </motion.div>
           </div>
         </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── SOCIALS BAND ─────────────────────────────────────────────────────────────
+function SocialsBand() {
+  const links = [
+    { name: 'Instagram', href: '#', Icon: Instagram },
+    { name: 'TikTok', href: '#', Icon: TiktokIcon },
+    { name: 'Facebook', href: '#', Icon: Facebook },
+    { name: 'YouTube (Self)', href: '#', Icon: Youtube },
+    { name: 'YouTube (Music)', href: '#', Icon: Music },
+  ]
+  return (
+    <section className="bg-[#f0ebe0] border-y border-[#e8dfd0]">
+      <div className="grid grid-cols-2 md:grid-cols-5">
+        {links.map((s, i) => (
+          <a key={i} href={s.href} target="_blank"
+            className="group flex flex-col items-center justify-center py-16 px-4 border-b md:border-b-0 md:border-r border-[#e8dfd0] last:border-0 hover:bg-[#e8d5b5]/30 transition-colors">
+            <s.Icon className="w-10 h-10 md:w-12 md:h-12 text-[#1a2e2a] mb-5 group-hover:-translate-y-2 group-hover:scale-110 transition-transform duration-300" strokeWidth={1.5} />
+            <span className="text-xs md:text-sm font-bold text-[#1a2e2a] uppercase tracking-widest text-center">{s.name}</span>
+          </a>
+        ))}
       </div>
     </section>
   )
@@ -345,7 +396,7 @@ function Mission() {
       <div className="max-w-5xl mx-auto">
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-6">What I Stand For</motion.p>
-        <h2 className="text-3xl md:text-5xl font-bold text-[#f5f0e8] mb-14 max-w-2xl leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+        <h2 className="text-2xl md:text-4xl font-bold text-[#f5f0e8] mb-14 max-w-2xl leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
           <Reveal>Technology should serve people, not just profit.</Reveal>
         </h2>
 
@@ -600,8 +651,11 @@ function Contact() {
           </Mag>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.55 }} className="flex justify-center gap-4 mt-10">
-          {[{ href: 'https://github.com/', Icon: Github }, { href: 'https://linkedin.com', Icon: Linkedin }].map(({ href, Icon }) => (
-            <a key={href} href={href} target="_blank"
+          {[
+            { href: 'https://github.com/aashutoshbasnetdotcom/', Icon: Github },
+            { href: 'https://www.linkedin.com/in/aashutoshbasnet/', Icon: Linkedin }
+          ].map(({ href, Icon }, idx) => (
+            <a key={idx} href={href} target="_blank"
               className="p-3.5 rounded-full border border-[#c8b99a] text-[#7a8a7e] hover:text-[#1a2e2a] hover:border-[#1a2e2a] hover:bg-[#f0ebe0] transition-all duration-200">
               <Icon className="w-5 h-5" />
             </a>
@@ -627,8 +681,15 @@ function Footer() {
               Web developer based in Nepal, focused on building modern, high performance websites and web applications.
             </p>
             <div className="flex gap-3">
-              {[{ href: 'https://github.com/', Icon: Github }, { href: 'https://linkedin.com', Icon: Linkedin }, { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }].map(({ href, Icon }) => (
-                <a key={href} href={href} target={href.startsWith('http') ? '_blank' : undefined}
+              {[
+                { href: 'https://github.com/aashutoshbasnetdotcom/', Icon: Github }, 
+                { href: 'https://www.linkedin.com/in/aashutoshbasnet/', Icon: Linkedin }, 
+                { href: '#', Icon: Instagram }, 
+                { href: '#', Icon: TiktokIcon }, 
+                { href: '#', Icon: Facebook }, 
+                { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }
+              ].map(({ href, Icon }, idx) => (
+                <a key={idx} href={href} target={href.startsWith('http') ? '_blank' : undefined}
                   className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#7a9a84] hover:text-[#d4a855] hover:border-[#d4a855]/30 transition-all duration-200">
                   <Icon className="w-4 h-4" />
                 </a>
@@ -767,6 +828,7 @@ export default function Portfolio() {
       <Nav />
       <Hero />
       <Identity />
+      <SocialsBand />
       <Mission />
       <WhatIBuild />
       <Experience />
