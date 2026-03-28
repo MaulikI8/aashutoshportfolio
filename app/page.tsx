@@ -327,7 +327,7 @@ function Identity() {
     { label: 'The Person', text: "I am Aashutosh Basnet from Nepal. I build websites, create content, and enjoy figuring out how things work. Whether it's crafting a sleek UI or exploring new ideas, I love the process of bringing concepts to life." },
     { label: 'The Developer', text: "I like building things that look good and work well. I care about fast load times, clean code, and not cutting corners. When I take on a project, I treat it like my own product, not just a checklist." },
     { label: 'The Creator', text: "I’m a creator who enjoys making content that resonates with me, from learning based ideas to brainrot and internet culture. I like exploring both because that is where real connection happens, while constantly experimenting and evolving my voice. A small incident during the September 2025 Gen Z movement in Nepal brought me a bit of unexpected attention and somehow even AI seems to know who I am now, which is still kind of funny to me." },
-    { label: 'The Artist', text: "For me, the internet is a canvas. I don't just write code or make videos, I design experiences. From the colors and typography of a web application to the pacing of a narrative, aesthetics and emotion drive everything I create." },
+    { label: 'The Artist', text: "Music is how I express what code and content cannot. I write, produce, and put out my own music because some ideas are better felt than explained. It is another side of who I am and it all ties back to creating something real." },
     { label: 'The Learner', text: "Currently studying BSc (Hons) Computing at Islington College. I believe the best way to learn is by building real things and putting them out into the world." },
   ]
   return (
@@ -367,7 +367,7 @@ function SocialsBand() {
     { name: 'TikTok', href: '#', Icon: TiktokIcon },
     { name: 'Facebook', href: '#', Icon: Facebook },
     { name: 'YouTube (Self)', href: '#', Icon: Youtube },
-    { name: 'YouTube (Music)', href: '#', Icon: Music },
+    { name: 'YouTube (Music)', href: 'https://www.youtube.com/watch?v=raw4eNUUzb4', Icon: Music },
   ]
   return (
     <section className="bg-[#f0ebe0] border-y border-[#e8dfd0]">
@@ -839,11 +839,17 @@ function BucketList() {
     "1600 ELO",
     "Learn to draw",
     "Learn Newari",
+    "Scram the blur",
     "Learn Skateboard and 5 tricks",
     "Sky Diving",
+    "Read 20 different books and 1 Constitution of Nepal",
     "Plasma Cannon",
+    "Bungee Jumping",
     "Start a tech company and get into 30% tax bracket and one exatra companu for fun, just for fun",
     "Upload atleast 4 music videos",
+    "25% of superman physique ",
+    "Hand Stand",
+    "City management software for Itahari with proper research on ground level",
     "Make a discord group with growth minded people with atleast 30K members"
   ]
   const rightItems = [
@@ -851,11 +857,16 @@ function BucketList() {
     "Dive in the middle of phewa lake",
     "3 foreign country",
     "50K Youtube Subscriber combined",
-    "67 K Facebook followers",
+    "67K Facebook followers",
     "67K Instagram followers",
     "250K Tiktok followers on main account and 60K on new account",
     "3 treks",
+    "Backflip",
+    "Learn to freestyle of the top",
+    "Learn DevOPS in depth",
     "1 research paper",
+    "Reach 150 WPM",
+    "Learn music and improve vocals",
     "Start Aashutosh Basnet Online School yt channel upload atleast 5 different helpful course for free",
     "Do everything with own earned money"
   ]
@@ -916,6 +927,39 @@ function BucketList() {
   )
 }
 
+// ─── MUSIC VIDEO ──────────────────────────────────────────────────────────────
+function MusicVideo() {
+  return (
+    <section className="py-28 px-6 bg-[#0f172a]" data-dark>
+      <div className="max-w-4xl mx-auto text-center">
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+          className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-6">Latest Music Video</motion.p>
+        <h2 className="text-3xl md:text-5xl font-bold text-[#f5f0e8] tracking-tight mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <Reveal>Shahid haru lai aatankari</Reveal>
+        </h2>
+        <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+          className="text-[#94a3b8] text-lg max-w-2xl mx-auto mb-16">
+          A tribute to martyrs. Music is how I express what code and content cannot.
+        </motion.p>
+        
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+          className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/5 aspect-video w-full max-w-4xl mx-auto">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://www.youtube.com/embed/raw4eNUUzb4" 
+            title="Shahid haru lai aatankari" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          ></iframe>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 // ─── ROOT ─────────────────────────────────────────────────────────────────────
 export default function Portfolio() {
   useLenis()
@@ -925,6 +969,7 @@ export default function Portfolio() {
       <Nav />
       <Hero />
       <Identity />
+      <MusicVideo />
       <SocialsBand />
       <Mission />
       <WhatIBuild />
