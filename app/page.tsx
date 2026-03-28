@@ -251,11 +251,8 @@ function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a2e2a]/8 border border-[#1a2e2a]/12 text-[#1a2e2a] text-xs font-medium mb-8">
               <MapPin className="w-3.5 h-3.5 text-[#d4a855]" /> Based in Nepal
             </motion.div>
-            <div className="mb-6">
-              <p className="text-[#7a8a7e] text-lg mb-1">
-                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}>Hi, I&apos;m</motion.span>
-              </p>
-              <h1 className="text-5xl md:text-7xl font-black text-[#1a2e2a] tracking-tight leading-none" style={{ fontFamily: 'var(--font-playfair)' }}>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="mb-8">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-[#1a2e2a] tracking-tight leading-none" style={{ fontFamily: 'var(--font-playfair)' }}>
                 <span className="block" style={{ overflow: 'hidden' }}>
                   <motion.span className="block" initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}>Aashutosh</motion.span>
                 </span>
@@ -263,7 +260,7 @@ function Hero() {
                   <motion.span className="block text-[#d4a855]" initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.7, delay: 0.32, ease: [0.33, 1, 0.68, 1] }}>Basnet</motion.span>
                 </span>
               </h1>
-            </div>
+            </motion.div>
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.48 }}
               className="text-[#5a6b5e] text-lg leading-relaxed mb-10 max-w-md">
               Web developer, content creator, and artist. I build things and tell stories that matter.
@@ -406,12 +403,12 @@ function Mission() {
         </h2>
 
         {/* Manifesto lines */}
-        <div className="border-t border-white/10 mb-16">
+        <div className="border-t border-white/10 mb-16 overflow-hidden">
           {lines.map((line, i) => (
             <motion.div key={i} initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.55, ease: [0.33, 1, 0.68, 1] }}
-              className="border-b border-white/10 py-6 flex items-center gap-6 group">
+              className="border-b border-white/10 py-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 group">
               <span className="text-[#d4a855] font-mono text-xs w-6 flex-shrink-0">0{i + 1}</span>
-              <span className="text-2xl md:text-3xl font-bold text-[#f5f0e8] group-hover:text-[#d4a855] transition-colors duration-300" style={{ fontFamily: 'var(--font-playfair)' }}>{line}</span>
+              <span className="text-xl md:text-3xl font-bold text-[#f5f0e8] group-hover:text-[#d4a855] transition-colors duration-300" style={{ fontFamily: 'var(--font-playfair)' }}>{line}</span>
             </motion.div>
           ))}
         </div>
