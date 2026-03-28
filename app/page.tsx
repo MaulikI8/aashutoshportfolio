@@ -280,9 +280,9 @@ function Hero() {
               {[
                 { href: 'https://github.com/aashutoshbasnetdotcom/', Icon: Github }, 
                 { href: 'https://www.linkedin.com/in/aashutoshbasnet/', Icon: Linkedin }, 
-                { href: '#', Icon: Instagram }, 
-                { href: '#', Icon: TiktokIcon }, 
-                { href: '#', Icon: Facebook }, 
+                { href: 'https://www.instagram.com/aashutoshbasnetdotcom/', Icon: Instagram }, 
+                { href: 'https://www.tiktok.com/@aashutoshbasnetdotcom', Icon: TiktokIcon }, 
+                { href: 'https://www.facebook.com/aashutoshbasnetdotcom/', Icon: Facebook }, 
                 { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }
               ].map(({ href, Icon }, idx) => (
                 <a key={idx} href={href} target={href.startsWith('http') ? '_blank' : undefined} className="text-[#9aaa9e] hover:text-[#1a2e2a] transition-colors"><Icon className="w-5 h-5" /></a>
@@ -363,10 +363,10 @@ function Identity() {
 // ─── SOCIALS BAND ─────────────────────────────────────────────────────────────
 function SocialsBand() {
   const links = [
-    { name: 'Instagram', href: '#', Icon: Instagram },
-    { name: 'TikTok', href: '#', Icon: TiktokIcon },
-    { name: 'Facebook', href: '#', Icon: Facebook },
-    { name: 'YouTube (Self)', href: '#', Icon: Youtube },
+    { name: 'Instagram', href: 'https://www.instagram.com/aashutoshbasnetdotcom/', Icon: Instagram },
+    { name: 'TikTok', href: 'https://www.tiktok.com/@aashutoshbasnetdotcom', Icon: TiktokIcon },
+    { name: 'Facebook', href: 'https://www.facebook.com/aashutoshbasnetdotcom/', Icon: Facebook },
+    { name: 'YouTube (Self)', href: 'https://www.youtube.com/@AashutoshBasnetRaw', Icon: Youtube },
     { name: 'YouTube (Music)', href: 'https://www.youtube.com/watch?v=raw4eNUUzb4', Icon: Music },
   ]
   return (
@@ -689,9 +689,9 @@ function Footer() {
               {[
                 { href: 'https://github.com/aashutoshbasnetdotcom/', Icon: Github }, 
                 { href: 'https://www.linkedin.com/in/aashutoshbasnet/', Icon: Linkedin }, 
-                { href: '#', Icon: Instagram }, 
-                { href: '#', Icon: TiktokIcon }, 
-                { href: '#', Icon: Facebook }, 
+                { href: 'https://www.instagram.com/aashutoshbasnetdotcom/', Icon: Instagram }, 
+                { href: 'https://www.tiktok.com/@aashutoshbasnetdotcom', Icon: TiktokIcon }, 
+                { href: 'https://www.facebook.com/aashutoshbasnetdotcom/', Icon: Facebook }, 
                 { href: 'mailto:aashutoshbasnet2063@gmail.com', Icon: Mail }
               ].map(({ href, Icon }, idx) => (
                 <a key={idx} href={href} target={href.startsWith('http') ? '_blank' : undefined}
