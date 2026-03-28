@@ -198,7 +198,7 @@ function Nav() {
     <>
       <motion.nav initial={{ y: -24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-transparent backdrop-blur-md' : 'bg-transparent'}`}>
-        <div className="max-w-5xl mx-auto px-6 flex items-center justify-between h-16">
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
           <a href="#hero" className={`font-bold text-xl tracking-tight transition-colors duration-300 ${tColor}`} style={{ fontFamily: 'var(--font-playfair)' }}>
             aashutoshbasnet<span className="text-[#d4a855]">.com</span>
           </a>
@@ -244,7 +244,7 @@ function Hero() {
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #c8b99a 1px, transparent 1px)', backgroundSize: '30px 30px', opacity: 0.35 }} />
       <div className="absolute top-[-8%] right-[-4%] w-[520px] h-[520px] rounded-full bg-[#d4a855]/10 blur-[90px] pointer-events-none" />
       <div className="absolute bottom-[-8%] left-[-4%] w-[420px] h-[420px] rounded-full bg-[#1a2e2a]/8 blur-[90px] pointer-events-none" />
-      <motion.div style={{ y }} className="max-w-5xl w-full z-10">
+      <motion.div style={{ y }} className="max-w-6xl w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
@@ -252,7 +252,7 @@ function Hero() {
               <MapPin className="w-3.5 h-3.5 text-[#d4a855]" /> Based in Nepal
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="mb-8">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-[#1a2e2a] tracking-tight leading-none" style={{ fontFamily: 'var(--font-playfair)' }}>
+              <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-[#1a2e2a] tracking-tight leading-none" style={{ fontFamily: 'var(--font-playfair)' }}>
                 <span className="block" style={{ overflow: 'hidden' }}>
                   <motion.span className="block" initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}>Aashutosh</motion.span>
                 </span>
@@ -262,7 +262,7 @@ function Hero() {
               </h1>
             </motion.div>
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.48 }}
-              className="text-[#5a6b5e] text-lg leading-relaxed mb-10 max-w-md">
+              className="text-[#5a6b5e] text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
               Web developer, content creator, and artist. I build things and tell stories that matter.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.58 }} className="flex flex-wrap gap-4">
@@ -329,7 +329,7 @@ function Identity() {
   ]
   return (
     <section id="about" className="py-28 px-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div className="lg:sticky lg:top-24">
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
@@ -395,10 +395,10 @@ function Mission() {
   ]
   return (
     <section id="mission" className="py-28 px-6 bg-[#1a2e2a]" data-dark>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-6">What I Stand For</motion.p>
-        <h2 className="text-2xl md:text-4xl font-bold text-[#f5f0e8] mb-14 max-w-3xl leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+        <h2 className="text-2xl md:text-5xl font-bold text-[#f5f0e8] mb-14 max-w-4xl leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
           <Reveal>Building technology and content that help ideas reach people and create real impact.</Reveal>
         </h2>
 
@@ -501,7 +501,7 @@ function Education() {
 function WhatIBuild() {
   return (
     <section id="services" className="py-28 px-6 bg-[#f0ebe0]">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-4">Capabilities</motion.p>
         <h2 className="text-3xl md:text-5xl font-bold text-[#1a2e2a] tracking-tight mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -604,7 +604,7 @@ function ProjectCard({ p, i }: { p: typeof PROJECTS[0]; i: number }) {
 function Projects() {
   return (
     <section id="projects" className="py-28 px-6 bg-[#1a2e2a]" data-dark>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[#d4a855] text-xs font-mono uppercase tracking-widest mb-4">Selected Work</motion.p>
         <h2 className="text-3xl md:text-5xl font-bold text-[#f5f0e8] mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -672,7 +672,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="bg-[#1a2e2a] pt-20 pb-10 px-6" data-dark>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="md:col-span-2">
