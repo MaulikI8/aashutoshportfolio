@@ -367,7 +367,7 @@ function SocialsBand() {
     { name: 'TikTok', href: 'https://www.tiktok.com/@aashutoshbasnetdotcom', Icon: TiktokIcon },
     { name: 'Facebook', href: 'https://www.facebook.com/aashutoshbasnetdotcom/', Icon: Facebook },
     { name: 'YouTube (Self)', href: 'https://www.youtube.com/@AashutoshBasnetRaw', Icon: Youtube },
-    { name: 'YouTube (Music)', href: 'https://www.youtube.com/watch?v=raw4eNUUzb4', Icon: Music },
+    { name: 'YouTube (Music)', href: 'https://www.youtube.com/@aapabad', Icon: Music },
   ]
   return (
     <section className="bg-[#f0ebe0] border-y border-[#e8dfd0]">
@@ -761,20 +761,6 @@ function Experience() {
       period: '2024 to Present',
       desc: 'Helping organize meetups, workshops, and hackathons for young developers in Nepal. Contributing to a growing local tech scene.',
       tags: ['Event Organization', 'Public Speaking', 'Community'],
-    },
-    {
-      role: 'Open Source Contributor',
-      org: 'GitHub',
-      period: '2023 to Present',
-      desc: 'Contributing to open source projects, building reusable components, and sharing code that other developers can learn from and use in their own work.',
-      tags: ['Open Source', 'React Components', 'Documentation', 'Code Review'],
-    },
-    {
-      role: 'Web Development Intern',
-      org: 'Local Tech Startup, Nepal',
-      period: '2023 to 2024',
-      desc: 'Built and maintained client facing features for a SaaS product. Worked in a small team shipping weekly updates, writing tests, and learning how production codebases actually work.',
-      tags: ['React', 'TypeScript', 'REST APIs', 'Agile', 'Git'],
     },
   ]
   return (
